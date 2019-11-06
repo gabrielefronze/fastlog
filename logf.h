@@ -45,7 +45,7 @@ void logf_internal(const Level level, const std::string_view s, Args... args)
     std::FILE* output = (level == Level::ERROR ? stderr : stdout);
     if (level <= logLevel)
     {
-        std::fprintf(output, "%s", Colors[level]);
+        std::fprintf(output, "%s", Colors[level].data());
         std::fprintf(output, s.data(), args...);
         std::fprintf(output, "\x1B[0m");
         std::fprintf(output, "\n");
