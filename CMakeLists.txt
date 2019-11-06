@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(include)
 
 add_library(logf INTERFACE)
-target_include_directories(logf INTERFACE logf.h)
+target_include_directories(logf INTERFACE fastlog.h)
 
 add_executable(logf-example
         main.cpp)

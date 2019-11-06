@@ -2,7 +2,7 @@
 // Created by Gabriele Gaetano Fronzé on 2019-11-06.
 //
 
-#include "logf.h"
+#include "fastlog.h"
 
 using namespace fastlog;
 

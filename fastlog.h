@@ -2,8 +2,8 @@
 // Created by Gabriele Gaetano Fronzé on 2019-11-06.
 //
 
-#ifndef LOGF_LOGF_H
-#define LOGF_LOGF_H
+#ifndef LOGF_FASTLOG_H
+#define LOGF_FASTLOG_H
 
 #include <iostream>
 #include <string_view>
@@ -52,4 +52,4 @@ namespace fastlog {
 
 #define fastlog(lvl, msg, ...) { fastlog_internal(lvl, "" msg, ##__VA_ARGS__); } (void)0
 
-#endif //LOGF_LOGF_H
+#endif //LOGF_FASTLOG_H
