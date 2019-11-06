@@ -10,8 +10,7 @@
 #include <array>
 #include <string>
 
-namespace logf {
-
+namespace fastlog {
   enum Level {
     SILENT = 0,
     ERROR = 1,
@@ -29,7 +28,7 @@ namespace logf {
                   "\x1B[1;33m"  // DEBUG: Green
           };
 
-  void logf_internal(const Level level, const std::string s) {
+  void fastlog_internal(const Level level, const std::string s) {
     std::FILE *output = (level == Level::ERROR ? stderr : stdout);
     if (level <= logLevel) {
       std::fprintf(output, "%s", Colors[level].data());
@@ -40,7 +39,7 @@ namespace logf {
   }
 
   template<typename... Args>
-  void logf_internal(const Level level, const std::string_view s, Args... args) {
+  void fastlog_internal(const Level level, const std::string_view s, Args... args) {
     std::FILE *output = (level == Level::ERROR ? stderr : stdout);
     if (level <= logLevel) {
       std::fprintf(output, "%s", Colors[level].data());
@@ -49,9 +48,8 @@ namespace logf {
       std::fprintf(output, "\n");
     }
   }
-
-#define logf(lvl, msg, ...) { logf_internal(lvl, "" msg, ##__VA_ARGS__); } (void)0
-
 }
+
+#define fastlog(lvl, msg, ...) { fastlog_internal(lvl, "" msg, ##__VA_ARGS__); } (void)0
 
 #endif //LOGF_LOGF_H

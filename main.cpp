@@ -4,7 +4,7 @@
 
 #include "logf.h"
 
-using namespace logf;
+using namespace fastlog;
 
 int main(){
   std::cout << "Showing effect of various loglevels:";
@@ -13,33 +13,33 @@ int main(){
 
   logLevel = DEBUG;
 
-  logf(INFO, "Info");
-  logf(DEBUG, "Debug");
-  logf(ERROR, "Error");
+  fastlog(INFO, "Info");
+  fastlog(DEBUG, "Debug");
+  fastlog(ERROR, "Error");
 
   std::cout << "\n\nLOGLEVEL = INFO\n";
 
   logLevel = INFO;
 
-  logf(INFO, "Info");
-  logf(DEBUG, "Debug");
-  logf(ERROR, "Error");
+  fastlog(INFO, "Info");
+  fastlog(DEBUG, "Debug");
+  fastlog(ERROR, "Error");
 
   std::cout << "\n\nLOGLEVEL = ERROR\n";
 
   logLevel = ERROR;
 
-  logf(INFO, "Info");
-  logf(DEBUG, "Debug");
-  logf(ERROR, "Error");
+  fastlog(INFO, "Info");
+  fastlog(DEBUG, "Debug");
+  fastlog(ERROR, "Error");
 
   std::cout << "\n\nLOGLEVEL = SILENT\n";
 
   logLevel = SILENT;
 
-  logf(INFO, "Info");
-  logf(DEBUG, "Debug");
-  logf(ERROR, "Error");
+  fastlog(INFO, "Info");
+  fastlog(DEBUG, "Debug");
+  fastlog(ERROR, "Error");
 
   return 0;
 }
