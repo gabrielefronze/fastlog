@@ -38,7 +38,7 @@ namespace fastlog {
   }
 
   template<typename... Args>
-  void fastlog_internal(const Level level, const std::string_view s, Args... args) {
+  void fastlog_internal(const Level level, const std::string s, Args... args) {
     std::FILE *output = (level == Level::ERROR ? stderr : stdout);
     if (level <= logLevel) {
       std::fprintf(output, "%s", Colors[level].data());
