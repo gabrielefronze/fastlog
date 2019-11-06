@@ -4,6 +4,8 @@
 
 #include "logf.h"
 
+using namespace logf;
+
 int main(){
   std::cout << "Showing effect of various loglevels:";
 
