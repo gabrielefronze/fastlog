@@ -1,0 +1,3 @@
+/Users/gabrielegaetanofronze/GitStuff/logf/cmake-build-debug/CMakeFiles/logf-example.dir
+/Users/gabrielegaetanofronze/GitStuff/logf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gabrielegaetanofronze/GitStuff/logf/cmake-build-debug/CMakeFiles/edit_cache.dir
