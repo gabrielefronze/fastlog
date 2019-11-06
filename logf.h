@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string_view>
 #include <array>
+#include <string>
 
 enum Level{
   SILENT = 0,
@@ -18,7 +19,7 @@ enum Level{
 
 static Level logLevel = INFO;
 
-static constexpr std::array Colors
+static const std::array<std::string, 4> Colors
 {
     "",
     "\x1B[1;31m", // ERROR: Bold Red
@@ -31,8 +32,8 @@ void logf_internal(const Level level, const std::string s)
   std::FILE* output = (level == Level::ERROR ? stderr : stdout);
   if (level <= logLevel)
   {
-    std::fprintf(output, "%s", Colors[level]);
-    std::fprintf(output, "%s", std::data(s));
+    std::fprintf(output, "%s", Colors[level].data());
+    std::fprintf(output, "%s", s.data());
     std::fprintf(output, "\x1B[0m");
     std::fprintf(output, "\n");
   }
@@ -45,7 +46,7 @@ void logf_internal(const Level level, const std::string_view s, Args... args)
     if (level <= logLevel)
     {
         std::fprintf(output, "%s", Colors[level]);
-        std::fprintf(output, std::data(s), args...);
+        std::fprintf(output, s.data(), args...);
         std::fprintf(output, "\x1B[0m");
         std::fprintf(output, "\n");
     }
