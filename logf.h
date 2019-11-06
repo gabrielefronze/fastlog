@@ -28,7 +28,7 @@ namespace fastlog {
                   "\x1B[1;33m"  // DEBUG: Green
           };
 
-  void fastlog_internal(const Level level, const std::string s) {
+  static void fastlog_internal(const Level level, const std::string s) {
     std::FILE *output = (level == Level::ERROR ? stderr : stdout);
     if (level <= logLevel) {
       std::fprintf(output, "%s", Colors[level].data());
