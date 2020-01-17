@@ -3,8 +3,10 @@ from enum import Enum
 
 SILENT = 0
 ERROR = 1
-INFO = 2
-DEBUG = 3
+WARNING = 2
+INFO = 3
+DEBUG = 4
+UI = -1
 
 class fastlog_style:
     def __init__(self, fg, style = None, bg = None):
@@ -28,12 +30,20 @@ class fastlog_style:
     def styleprint(self, *args, **kwargs):
         print(self.get_style() + " ".join(map(str,args)) + style.RESET, **kwargs)
 
-fastlog_styles = { SILENT : fastlog_style(fore.BLACK), ERROR : fastlog_style(fore.RED, style.BOLD), INFO : fastlog_style(fore.CYAN), DEBUG : fastlog_style(fore.BLACK)}
+fastlog_styles = {  
+                    UI : fastlog_style(fore.MAGENTA),
+                    SILENT : fastlog_style(fore.BLACK), 
+                    ERROR : fastlog_style(fore.RED, style.BOLD), 
+                    WARNING : fastlog_style(fore.ORANGE_1),
+                    INFO : fastlog_style(fore.CYAN), 
+                    DEBUG : fastlog_style(fore.BLACK)
+                }
 
 logLevel = DEBUG
 def set_log_level(ll):
-    global logLevel
-    logLevel = ll
+    if ll > UI: # UI should always be visible
+        global logLevel
+        logLevel = ll
 
 def fastlog(level, *args, **kwargs):
     global logLevel
