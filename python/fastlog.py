@@ -17,11 +17,11 @@ class fastlog_style:
         if not self.style_str:
             self.style_str = ''
             if self.fg:
-                self.style_str += self.fg + ' '
+                self.style_str += self.fg
             if self.style:
-                self.style_str += self.style + ' '
+                self.style_str += self.style
             if self.bg:
-                self.style_str += self.bg + ' '
+                self.style_str += self.bg
 
         return self.style_str
 
@@ -31,6 +31,9 @@ class fastlog_style:
 fastlog_styles = { SILENT : fastlog_style(fore.BLACK), ERROR : fastlog_style(fore.RED, style.BOLD), INFO : fastlog_style(fore.CYAN), DEBUG : fastlog_style(fore.BLACK)}
 
 logLevel = DEBUG
+def set_log_level(ll):
+    global logLevel
+    logLevel = ll
 
 def fastlog(level, *args, **kwargs):
     global logLevel
