@@ -2,3 +2,9 @@
 .idea/*
 cmake-build-debug
 cmake-build-debug/*
+
+.vscode/
+
+python/__pycache__/
+
+build/
