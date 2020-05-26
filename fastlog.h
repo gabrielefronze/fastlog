@@ -22,9 +22,9 @@ namespace fastlog {
   static const std::array<std::string, 4> Colors
           {
                   "",
-                  "\x1B[1;31m[ERROR]", // ERROR: Bold Red
-                  "\x1B[1;34m[INFO]", // INFO: Bold Blue
-                  "\x1B[1;33m[DEBUG]"  // DEBUG: Green
+                  "\x1B[1;31m[ERROR]\t", // ERROR: Bold Red
+                  "\x1B[1;34m[INFO]\t", // INFO: Bold Blue
+                  "\x1B[1;33m[DEBUG]\t"  // DEBUG: Green
           };
 
   static void fastlog_internal(const Level level, const std::string s) {
