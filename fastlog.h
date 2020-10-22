@@ -17,7 +17,7 @@ namespace fastlog {
     DEBUG = 3
   } typedef Level;
 
-  static Level logLevel = INFO;
+  extern Level logLevel;
 
   static const std::array<std::string, 4> Colors
           {
